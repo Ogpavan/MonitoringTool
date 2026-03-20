@@ -1,0 +1,59 @@
+.surface {
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #dde1e6;
+  border-radius: 4px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+}
+
+.card {
+  display: grid;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 1px solid #eef1f4;
+  border-radius: 4px;
+}
+
+.copy {
+  display: grid;
+  gap: 4px;
+}
+
+.recommendation,
+.impact {
+  margin: 0;
+}
+
+.recommendation {
+  font-size: 12px;
+  font-weight: 600;
+  color: #161616;
+}
+
+.impact,
+.empty {
+  color: #6f6f6f;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.applyButton {
+  width: fit-content;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.applyButton:hover {
+  transform: scale(1.02);
+}
