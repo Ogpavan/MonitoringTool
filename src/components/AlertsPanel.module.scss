@@ -14,13 +14,15 @@
 
 .title {
   margin: 0;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--type-body-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
 }
 
 .count {
   color: #6f6f6f;
-  font-size: 11px;
+  font-size: var(--type-caption);
+  line-height: var(--line-body);
 }
 
 .list {
@@ -61,15 +63,16 @@
 .message {
   margin: 0;
   color: #161616;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: var(--type-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-body);
 }
 
 .time,
 .empty {
   color: #6f6f6f;
-  font-size: 11px;
+  font-size: var(--type-caption);
+  line-height: var(--line-body);
 }
 
 .action {

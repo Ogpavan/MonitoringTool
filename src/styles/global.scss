@@ -2,7 +2,18 @@
 
 :root {
   color: #161616;
-  background: #f9fafb;
+  background: #f4f4f4;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --type-caption: 0.75rem;
+  --type-body-sm: 0.875rem;
+  --type-body-md: 1rem;
+  --type-heading-sm: 1.25rem;
+  --type-heading-lg: clamp(1.75rem, 3vw, 2.5rem);
+  --line-tight: 1.25;
+  --line-body: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +32,18 @@ body,
 }
 
 body {
-  background: #f9fafb;
+  background: #f4f4f4;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--type-body-sm);
+  line-height: var(--line-body);
+  color: #161616;
+}
+
+code,
+pre,
+.cds--code-snippet,
+.cds--inline-code {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
 button {
@@ -35,6 +57,32 @@ button {
 
 button:hover {
   transform: scale(1.02);
+}
+
+.cds--content {
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  line-height: var(--line-tight);
+  letter-spacing: 0;
+}
+
+p,
+span,
+button,
+input,
+textarea,
+label,
+th,
+td {
+  font-family: inherit;
 }
 
 .cds--css-grid-column {

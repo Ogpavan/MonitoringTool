@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Tag } from '@carbon/react';
 import styles from './StatCard.module.scss';
 
 function AnimatedValue({ value, isLoading }) {
@@ -37,9 +36,6 @@ function StatCard({ label, value, tone, isLoading }) {
     <div className={`${styles.card} ${styles[tone]}`}>
       <div className={styles.header}>
         <span className={styles.label}>{label}</span>
-        <Tag type={tone === 'healthy' ? 'green' : tone === 'warning' ? 'yellow' : tone === 'critical' ? 'red' : 'cool-gray'}>
-          {label}
-        </Tag>
       </div>
       <AnimatedValue value={value} isLoading={isLoading} />
     </div>

@@ -1,0 +1,66 @@
+.content {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.searchSlot {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  max-width: 28rem;
+  margin-inline: auto 1rem;
+}
+
+.searchSlot :global(.cds--search) {
+  inline-size: 100%;
+}
+
+.searchSlot :global(.cds--search-input),
+.searchSlot :global(.cds--search-magnifier),
+.searchSlot :global(.cds--search-close) {
+  background: #161616;
+  color: #f4f4f4;
+}
+
+.searchSlot :global(.cds--search-input) {
+  border-block-end: 1px solid #525252;
+}
+
+.searchSlot :global(.cds--search-input::placeholder) {
+  color: #c6c6c6;
+}
+
+.sideNav {
+  border-inline-end: 1px solid #393939;
+}
+
+.navItemLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navItemIcon {
+  display: inline-flex;
+  align-items: center;
+  color: #c6c6c6;
+}
+
+.navItemNote {
+  margin-inline-start: 0.25rem;
+  color: #8d8d8d;
+  font-size: var(--type-caption);
+}
+
+@media (max-width: 1056px) {
+  .searchSlot {
+    max-width: 20rem;
+    margin-inline-end: 0.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .searchSlot {
+    display: none;
+  }
+}

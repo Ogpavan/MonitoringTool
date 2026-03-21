@@ -7,8 +7,9 @@
 
 .title {
   margin: 0 0 8px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--type-body-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
 }
 
 .list {
@@ -36,16 +37,17 @@
 }
 
 .recommendation {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--type-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
   color: #161616;
 }
 
 .impact,
 .empty {
   color: #6f6f6f;
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: var(--type-caption);
+  line-height: var(--line-body);
 }
 
 .applyButton {

@@ -2,10 +2,8 @@ import { useMemo } from 'react';
 import { Column, Grid, SkeletonText } from '@carbon/react';
 import { CheckmarkFilled, DataBase, ErrorFilled, WarningFilled } from '@carbon/icons-react';
 import Charts from '../components/Charts';
-import Header from '../components/Header';
 import LoadingPanel from '../components/LoadingPanel';
 import ServerTable from '../components/ServerTable';
-import Sidebar from '../components/Sidebar';
 import { useServerData } from '../hooks/useServerData';
 import styles from './Dashboard.module.scss';
 
@@ -45,42 +43,41 @@ function Dashboard() {
   const sortedServers = useMemo(() => [...servers].sort((left, right) => right.loadScore - left.loadScore), [servers]);
 
   return (
-    <div className={styles.page}>
-      <Sidebar />
-
-      <div className={styles.workspace}>
-        <Header />
-
-        <main className={styles.content}>
-          <Grid fullWidth condensed className={styles.grid}>
-            <Column lg={16} md={8} sm={4}>
-              <div className={styles.summarySurface}>
-                <SummaryRow summary={summary} isLoading={isLoading} />
-              </div>
-            </Column>
-
-            <Column lg={16} md={8} sm={4} className={styles.mainColumn}>
-              {isLoading ? (
-                <LoadingPanel rows={8} />
-              ) : (
-                <ServerTable servers={sortedServers} onRebalance={rebalanceServer} />
-              )}
-            </Column>
-
-            <Column lg={16} md={8} sm={4} className={styles.bottomColumn}>
-              {isLoading ? (
-                <div className={styles.chartSkeleton}>
-                  <SkeletonText heading width="22%" />
-                  <SkeletonText paragraph lineCount={8} />
-                </div>
-              ) : (
-                <Charts cpuTrendData={cpuTrendData} loadDistributionData={loadDistributionData} />
-              )}
-            </Column>
-          </Grid>
-        </main>
+    <main className={styles.content}>
+      <div className={styles.heading}>
+        <div>
+          <p className={styles.eyebrow}>Operations overview</p>
+          <h1 className={styles.title}>Infrastructure dashboard</h1>
+        </div>
       </div>
-    </div>
+
+      <Grid fullWidth condensed className={styles.grid}>
+        <Column lg={16} md={8} sm={4}>
+          <div className={styles.summarySurface}>
+            <SummaryRow summary={summary} isLoading={isLoading} />
+          </div>
+        </Column>
+
+        <Column lg={16} md={8} sm={4} className={styles.mainColumn}>
+          {isLoading ? (
+            <LoadingPanel rows={8} />
+          ) : (
+            <ServerTable servers={sortedServers} onRebalance={rebalanceServer} />
+          )}
+        </Column>
+
+        <Column lg={16} md={8} sm={4} className={styles.bottomColumn}>
+          {isLoading ? (
+            <div className={styles.chartSkeleton}>
+              <SkeletonText heading width="22%" />
+              <SkeletonText paragraph lineCount={8} />
+            </div>
+          ) : (
+            <Charts cpuTrendData={cpuTrendData} loadDistributionData={loadDistributionData} />
+          )}
+        </Column>
+      </Grid>
+    </main>
   );
 }
 

@@ -15,14 +15,15 @@
 
 .label {
   color: #6f6f6f;
-  font-size: 0.875rem;
+  font-size: var(--type-body-sm);
+  line-height: var(--line-body);
 }
 
 .value {
   display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: var(--type-heading-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
 }
 
 .healthy {
