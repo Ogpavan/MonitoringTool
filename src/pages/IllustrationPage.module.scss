@@ -12,6 +12,14 @@
   max-width: 99rem;
 }
 
+.heroInlineNotices {
+  flex: 1 1 32rem;
+  min-width: 18rem;
+  max-width: 42rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
 .eyebrow {
   margin: 0 0 0.25rem;
   color: #525252;
@@ -48,6 +56,10 @@
   background: #ffffff;
   border: 1px solid #dde1e6;
   border-radius: 4px;
+}
+
+.inlineNotice {
+  margin-bottom: 1rem;
 }
 
 .sectionTitle {
@@ -179,7 +191,14 @@
 .pillRow {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
+}
+
+.scanMeta {
+  color: #525252;
+  font-size: var(--type-caption);
+  line-height: 1.2;
 }
 
 .emptyState {
@@ -245,6 +264,10 @@
 
 .warningRow :global(td) {
   background: #fffdf5;
+}
+
+.pendingRow :global(td) {
+  background: #f3f7ff;
 }
 
 .dormantRow :global(td) {
@@ -387,6 +410,24 @@
   justify-content: flex-start;
 }
 
+.configPanel {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.configGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.configActions {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 0.25rem;
+}
+
 @media (max-width: 672px) {
   .page {
     padding: 1.5rem 0.75rem 0.75rem;
@@ -395,9 +436,20 @@
   .hero {
     margin-bottom: 1rem;
     padding: 0 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroInlineNotices {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .configGrid {
     grid-template-columns: 1fr;
   }
 

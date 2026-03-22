@@ -30,6 +30,112 @@
   color: #c6c6c6;
 }
 
+.profileMenuWrap {
+  position: relative;
+  height: 3rem;
+}
+
+.profileTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 100%;
+  min-width: 14rem;
+  padding: 0 1rem;
+  border: 0;
+  background: transparent;
+  color: #f4f4f4;
+  cursor: pointer;
+}
+
+.profileTrigger:hover,
+.profileTrigger:focus-visible {
+  background: #353535;
+  outline: none;
+}
+
+.profileIdentity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.profileAvatar {
+  display: inline-flex;
+  align-items: center;
+  color: #c6c6c6;
+}
+
+.profileCopy {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+  text-align: left;
+}
+
+.profileName,
+.profileMeta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profileName {
+  color: #f4f4f4;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.profileMeta {
+  color: #a8a8a8;
+  font-size: 0.75rem;
+}
+
+.profileChevron {
+  display: inline-flex;
+  align-items: center;
+  color: #c6c6c6;
+}
+
+.profileDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 14rem;
+  padding: 0.5rem;
+  border: 1px solid #393939;
+  border-radius: 0.5rem;
+  background: #262626;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.profileMenuItem,
+.profileMenuItemDanger {
+  padding: 0.75rem 0.875rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: #f4f4f4;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profileMenuItem:hover,
+.profileMenuItemDanger:hover,
+.profileMenuItem:focus-visible,
+.profileMenuItemDanger:focus-visible {
+  background: #393939;
+  outline: none;
+}
+
+.profileMenuItemDanger {
+  color: #ff8389;
+}
+
 .sideNav {
   border-inline-end: 1px solid #393939;
 }
@@ -60,7 +166,14 @@
 }
 
 @media (max-width: 800px) {
-  .searchSlot {
+  .searchSlot,
+  .profileMeta,
+  .profileChevron {
     display: none;
+  }
+
+  .profileTrigger {
+    min-width: auto;
+    padding-inline: 0.75rem;
   }
 }

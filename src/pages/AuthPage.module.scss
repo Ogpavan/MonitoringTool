@@ -1,0 +1,112 @@
+.authCard {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(221, 225, 230, 0.9);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1.5rem 4rem rgba(22, 22, 22, 0.08),
+    0 0.25rem 0.75rem rgba(22, 22, 22, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.cardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.heading,
+.subheading,
+.metaText {
+  margin: 0;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #161616;
+}
+
+.subheading {
+  margin-top: 0.75rem;
+  color: #525252;
+  font-size: 0.95rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.splitFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.helperButton {
+  padding: 0;
+}
+
+.submitButton {
+  width: 100%;
+  max-width: 100%;
+}
+
+.submitButton:global(.cds--btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding-inline: 1rem;
+  text-align: center;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dde1e6;
+}
+
+.metaText {
+  color: #6f6f6f;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.successNotification {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 672px) {
+  .authCard {
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .splitFields {
+    grid-template-columns: 1fr;
+  }
+
+  .checkboxRow,
+  .metaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .metaText {
+    text-align: center;
+  }
+}

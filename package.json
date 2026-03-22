@@ -6,13 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "db:test": "node server/test-connection.js",
+    "ssl:worker": "node server/sslScanWorker.js"
   },
   "dependencies": {
     "@carbon/charts": "^1.24.0",
     "@carbon/charts-react": "^1.24.0",
     "@carbon/icons-react": "^11.59.0",
     "@carbon/react": "^1.82.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "odbc": "^2.4.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

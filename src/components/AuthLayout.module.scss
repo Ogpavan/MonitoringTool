@@ -1,0 +1,195 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(15, 98, 254, 0.18), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(0, 45, 156, 0.14), transparent 28rem),
+    linear-gradient(180deg, #edf5ff 0%, #f4f4f4 52%, #e8edf3 100%);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(141, 141, 141, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 141, 141, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
+  pointer-events: none;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(24rem, 1.1fr) minmax(22rem, 0.9fr);
+  min-height: 100vh;
+}
+
+.storyPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem clamp(1.5rem, 4vw, 4rem);
+  background:
+    linear-gradient(160deg, rgba(38, 38, 38, 0.94), rgba(22, 22, 22, 0.98)),
+    linear-gradient(135deg, rgba(15, 98, 254, 0.12), transparent 60%);
+  color: #f4f4f4;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(244, 244, 244, 0.24);
+  border-radius: 0.25rem;
+  background: rgba(244, 244, 244, 0.08);
+}
+
+.productName,
+.productMeta,
+.eyebrow,
+.description,
+.signalValue,
+.signalNote {
+  margin: 0;
+}
+
+.productName {
+  font-size: 0.875rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.productMeta {
+  margin-top: 0.25rem;
+  color: #a8a8a8;
+}
+
+.storyCopy {
+  display: grid;
+  gap: 1rem;
+  max-width: 34rem;
+}
+
+.eyebrow {
+  color: #78a9ff;
+  font-size: var(--type-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  max-width: 28rem;
+  color: #c6c6c6;
+  font-size: 1rem;
+}
+
+.signalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.signalCard {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(244, 244, 244, 0.12);
+  border-radius: 0.5rem;
+  background: rgba(38, 38, 38, 0.54);
+  backdrop-filter: blur(14px);
+}
+
+.signalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.signalIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #78a9ff;
+}
+
+.signalValue {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.signalNote {
+  color: #a8a8a8;
+  font-size: 0.875rem;
+}
+
+.formPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.formPanelInner {
+  width: min(100%, 30rem);
+}
+
+.alternateAction {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  color: #525252;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1056px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .storyPanel {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .signalGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 672px) {
+  .storyPanel,
+  .formPanel {
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .formPanelInner {
+    width: 100%;
+  }
+}

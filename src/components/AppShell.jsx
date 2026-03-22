@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import {
   Content,
   Header,
@@ -21,9 +22,10 @@ import {
   Activity,
   CertificateCheck,
   ChartLine,
+  ChevronDown,
+  CloudMonitoring,
   Dashboard,
   DirectoryDomain,
-  CloudMonitoring,
   Notification,
   ServerProxy,
   Settings,
@@ -49,7 +51,23 @@ function NavItemLabel({ icon: Icon, children, note }) {
   );
 }
 
-function AppShell({ activePage, onNavigate, children }) {
+function AppShell({ activePage, authUser, onNavigate, onLogout, children }) {
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
+  const profileName = authUser?.fullName || authUser?.email || 'Operator';
+  const profileMeta = authUser?.teamName || authUser?.email || 'Monitoring workspace';
+
+  useEffect(() => {
+    const handlePointerDown = (event) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target)) {
+        setIsProfileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    return () => document.removeEventListener('mousedown', handlePointerDown);
+  }, []);
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
@@ -60,6 +78,16 @@ function AppShell({ activePage, onNavigate, children }) {
           if (shouldCloseSideNav && isSideNavExpanded) {
             onClickSideNavExpand();
           }
+        };
+
+        const handleProfileNavigate = (pageId) => {
+          onNavigate(pageId);
+          setIsProfileMenuOpen(false);
+        };
+
+        const handleLogoutClick = () => {
+          setIsProfileMenuOpen(false);
+          onLogout();
         };
 
         return (
@@ -96,9 +124,41 @@ function AppShell({ activePage, onNavigate, children }) {
                   <HeaderGlobalAction aria-label="Notifications" tooltipAlignment="end">
                     <Notification size={20} />
                   </HeaderGlobalAction>
-                  <HeaderGlobalAction aria-label="User profile" tooltipAlignment="end">
-                    <UserAvatar size={20} />
-                  </HeaderGlobalAction>
+                  <div className={styles.profileMenuWrap} ref={profileMenuRef}>
+                    <button
+                      type="button"
+                      className={styles.profileTrigger}
+                      aria-haspopup="menu"
+                      aria-expanded={isProfileMenuOpen}
+                      onClick={() => setIsProfileMenuOpen((current) => !current)}>
+                      <span className={styles.profileIdentity}>
+                        <span className={styles.profileAvatar} aria-hidden="true">
+                          <UserAvatar size={20} />
+                        </span>
+                        <span className={styles.profileCopy}>
+                          <span className={styles.profileName}>{profileName}</span>
+                          <span className={styles.profileMeta}>{profileMeta}</span>
+                        </span>
+                      </span>
+                      <span className={styles.profileChevron} aria-hidden="true">
+                        <ChevronDown size={16} />
+                      </span>
+                    </button>
+
+                    {isProfileMenuOpen ? (
+                      <div className={styles.profileDropdown} role="menu" aria-label="Profile menu">
+                        <button type="button" className={styles.profileMenuItem} onClick={() => handleProfileNavigate('configuration')}>
+                          Profile
+                        </button>
+                        <button type="button" className={styles.profileMenuItem} onClick={() => handleProfileNavigate('configuration')}>
+                          Account Security
+                        </button>
+                        <button type="button" className={styles.profileMenuItemDanger} onClick={handleLogoutClick}>
+                          Logout
+                        </button>
+                      </div>
+                    ) : null}
+                  </div>
                 </HeaderGlobalBar>
                 <SideNav
                   aria-label="Side navigation"
